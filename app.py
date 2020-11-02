@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template
+from flask import render_template, request
 
 app = Flask(__name__)
 
@@ -14,6 +14,27 @@ def estimate():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.route('/TotalPrice', methods=['POST'])
+def TotalPrice():
+    if request.method == 'POST':
+        form = request.form
+        radius = float(form['radius'])
+        height = float(form['height'])
+        pi = 3.14
+        areaOfTankTop = pi * (radius**2)
+        areaOfTankSide = 2 * (pi*(radius*height))
+        totalPrice = 35 * (areaOfTankSide + areaOfTankTop)
+        
+        print(radius)
+        print(height)
+        print(areaOfTankTop)
+        print(areaOfTankSide)
+        print(totalPrice)
+
+        return render_template('estimate.html', TotalPrice = totalPrice)
+        
+    return render_template('estimate.html')
 
 if __name__  == '__main__':
     app.run(debug=True)
