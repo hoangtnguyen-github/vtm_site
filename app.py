@@ -25,6 +25,7 @@ def TotalPrice():
         areaOfTankTop = pi * (radius**2)
         areaOfTankSide = 2 * (pi*(radius*height))
         totalPrice = 35 * (areaOfTankSide + areaOfTankTop)
+        formattedTotalPrice = "${:,.2f}".format(totalPrice)
         
         print(radius)
         print(height)
@@ -32,7 +33,7 @@ def TotalPrice():
         print(areaOfTankSide)
         print(totalPrice)
 
-        return render_template('estimate.html', TotalPrice = totalPrice)
+        return render_template('estimate.html', TotalPrice = formattedTotalPrice)
         
     return render_template('estimate.html')
 
