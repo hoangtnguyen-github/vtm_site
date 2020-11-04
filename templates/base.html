@@ -5,10 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stylesheet.css') }}">
+            
+        
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a runat="server" href="/">Home</a></li>
+                <li><a runat="server" href="/about">About</a></li>
+                <li><a runat="server" href="/estimate">Estimate</a></li>
+            </ul>
+        </div>
     
 </head>
 <body>
-    <div>
+    <div class="body">
         <h1>Vertical Tank Maintenance</h1>
         <hr>
         <br>
